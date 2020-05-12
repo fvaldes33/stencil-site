@@ -9,6 +9,7 @@ export class ResourcesPage {
   @State() searchTerm: string = '';
   @State() isLoading: boolean = false;
   @State() activeTab: string = 'article-blogs';
+  @State() tweets: any[] = [];
 
   constructor() {
     document.title = `Stencil Resources`;
@@ -38,6 +39,24 @@ export class ResourcesPage {
     }
 
     return link.title.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+  }
+
+  async getTwitterFeed() {
+    try {
+      const res = await fetch('/assets/twitter-feed.json');
+      const feed = await res.json();
+
+      this.tweets = feed;
+    } catch (error) {
+
+    }
+  }
+
+  async componentDidLoad() {
+    // fetch token and timelines
+    await this.getTwitterFeed();
+    // await this.getTwitterFeed();
+
   }
 
   private renderTablist() {
@@ -164,7 +183,30 @@ export class ResourcesPage {
               </div>
             </form>
           </header>
+        </div>
 
+        {this.tweets.length &&
+          <div>
+            <div class="container">
+              <div class="twitter-carousel-header">
+                <h2>Latest Tweets</h2>
+                <a rel="noopener" target="_blank" href="https://twitter.com/stenciljs">Follow us on twitter</a>
+              </div>
+            </div>
+
+            <section class="twitter-carousel-wrapper">
+              <div class="container container-visible">
+                <div class="twitter-carousel">
+                  {this.tweets.map((tweet: any) => (
+                    <twitter-card tweet={tweet}></twitter-card>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </div>
+        }
+
+        <div class="container">
           <section>
             <div class="tabs">
               {this.renderTablist()}

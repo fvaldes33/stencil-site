@@ -71,6 +71,9 @@ export namespace Components {
     }
     interface SiteTopBar {
     }
+    interface TwitterCard {
+        "tweet": any;
+    }
 }
 declare global {
     interface HTMLAnnouncementBarElement extends Components.AnnouncementBar, HTMLStencilElement {
@@ -211,6 +214,12 @@ declare global {
         prototype: HTMLSiteTopBarElement;
         new (): HTMLSiteTopBarElement;
     };
+    interface HTMLTwitterCardElement extends Components.TwitterCard, HTMLStencilElement {
+    }
+    var HTMLTwitterCardElement: {
+        prototype: HTMLTwitterCardElement;
+        new (): HTMLTwitterCardElement;
+    };
     interface HTMLElementTagNameMap {
         "announcement-bar": HTMLAnnouncementBarElement;
         "app-burger": HTMLAppBurgerElement;
@@ -235,6 +244,7 @@ declare global {
         "site-header": HTMLSiteHeaderElement;
         "site-menu": HTMLSiteMenuElement;
         "site-top-bar": HTMLSiteTopBarElement;
+        "twitter-card": HTMLTwitterCardElement;
     }
 }
 declare namespace LocalJSX {
@@ -303,6 +313,9 @@ declare namespace LocalJSX {
     }
     interface SiteTopBar {
     }
+    interface TwitterCard {
+        "tweet"?: any;
+    }
     interface IntrinsicElements {
         "announcement-bar": AnnouncementBar;
         "app-burger": AppBurger;
@@ -327,6 +340,7 @@ declare namespace LocalJSX {
         "site-header": SiteHeader;
         "site-menu": SiteMenu;
         "site-top-bar": SiteTopBar;
+        "twitter-card": TwitterCard;
     }
 }
 export { LocalJSX as JSX };
@@ -356,6 +370,7 @@ declare module "@stencil/core" {
             "site-header": LocalJSX.SiteHeader & JSXBase.HTMLAttributes<HTMLSiteHeaderElement>;
             "site-menu": LocalJSX.SiteMenu & JSXBase.HTMLAttributes<HTMLSiteMenuElement>;
             "site-top-bar": LocalJSX.SiteTopBar & JSXBase.HTMLAttributes<HTMLSiteTopBarElement>;
+            "twitter-card": LocalJSX.TwitterCard & JSXBase.HTMLAttributes<HTMLTwitterCardElement>;
         }
     }
 }

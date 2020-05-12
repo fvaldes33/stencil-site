@@ -22,12 +22,43 @@ resources-page .headline span::after {
   z-index: -1;
 }
 
-resources-page .container > header {
+resources-page .container-visible {
+  overflow: visible;
+}
+
+resources-page .container>header {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 120px;
+}
+
+resources-page .twitter-carousel-wrapper {
+  display: flex;
+  overflow: scroll;
+  padding-bottom: 80px;
+}
+
+resources-page .container>.twitter-carousel-header {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+
+resources-page .container>.twitter-carousel-header h2 {
+  margin: 0;
+  margin-right: 24px;
+}
+
+resources-page .twitter-carousel-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+resources-page .twitter-carousel {
+  display: flex;
+  overflow: visible;
 }
 
 resources-page .form {
@@ -48,9 +79,7 @@ resources-page .form-group svg {
   transform: translate3d(0, -50%, 0);
 }
 
-resources-page form input,
-resources-page form button,
-resources-page .form-message {
+resources-page form input, resources-page form button, resources-page .form-message {
   min-height: 45px;
 }
 
@@ -118,7 +147,7 @@ resources-page .measure-lg {
   margin-bottom: 100px;
 }
 
-resources-page .measure-lg > div + div {
+resources-page .measure-lg>div+div {
   margin-top: 56px;
 }
 
@@ -126,11 +155,11 @@ resources-page .list--unstyled {
   line-height: 1.4;
 }
 
-resources-page .list--unstyled li + li {
+resources-page .list--unstyled li+li {
   margin-top: 20px;
 }
 
-resources-page h2 + .list--unstyled {
+resources-page h2+.list--unstyled {
   margin-top: 22px;
 }
 
@@ -232,15 +261,14 @@ resources-page .tabpanel section header h2 {
   resources-page form input {
     margin-right: 0px;
   }
-  resources-page .form-group input,
-  resources-page .form-group button {
+  resources-page .form-group input, resources-page .form-group button {
     width: 100%;
     display: block;
   }
 }
 
 @media screen and (max-width: 768px) {
-  resources-page .container > header {
+  resources-page .container>header {
     flex-direction: column;
     margin-bottom: 80px;
   }
@@ -256,17 +284,17 @@ resources-page .tabpanel section header h2 {
     max-width: unset;
     margin-bottom: 32px;
   }
-  resources-page .tabs .tablist > button {
+  resources-page .tabs .tablist>button {
     border-left: none;
     border-bottom: 10px solid rgba(var(--color-dodger-blue-rgb), 0.5);
     margin-bottom: 0;
     margin-right: 16px;
     padding: 16px;
   }
-  resources-page .tabs .tablist > button:last-child {
+  resources-page .tabs .tablist>button:last-child {
     margin-right: 0;
   }
-  resources-page .tabs .tablist > button.active {
+  resources-page .tabs .tablist>button.active {
     border-bottom: 10px solid rgba(var(--color-dodger-blue-rgb), 1);
   }
   resources-page .tabpanel {
@@ -275,8 +303,7 @@ resources-page .tabpanel section header h2 {
 }
 
 @media screen and (max-width: 860px) {
-  resources-page .container,
-  resources-page .header {
+  resources-page .container, resources-page .header {
     flex-direction: column;
     align-items: center;
   }

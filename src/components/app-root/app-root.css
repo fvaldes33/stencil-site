@@ -50,6 +50,7 @@ main {
   flex-direction: column;
   min-height: calc(100vh - 64px);
   padding-top: 80px;
+  overflow-x: hidden;
 }
 
 stencil-router {
