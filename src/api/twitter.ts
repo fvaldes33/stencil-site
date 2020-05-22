@@ -1,14 +1,12 @@
+import { NowRequest, NowResponse } from '@now/node'
 import base64 from 'base-64';
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
-import path from 'path';
-import { writeFile } from 'fs-extra';
 
 dotenv.config();
 
 const TWITTER_API_KEY = process.env.TWITTER_API_KEY;
 const TWITTER_SECRET_KEY = process.env.TWITTER_SECRET_KEY;
-const DESTINATION_DIR = './src/assets';
 
 function createAuthToken() {
   return base64.encode(`${TWITTER_API_KEY}:${TWITTER_SECRET_KEY}`);
@@ -46,24 +44,13 @@ async function getTwitterFeed(token: { token_type: string, access_token: string 
   }
 }
 
-(async function () {
-  if (!TWITTER_API_KEY || !TWITTER_SECRET_KEY) {
-    return;
-  }
-
-  const destinationFileName = path.join(
-    DESTINATION_DIR,
-    'twitter-feed.json'
-  );
-
+export default async (_: NowRequest, response: NowResponse) => {
   // fetch token
   const token = await getTwitterToken();
 
   // fetch feed
   const feed = await getTwitterFeed(token);
 
-  // write to file
-  await writeFile(destinationFileName, JSON.stringify(feed), {
-    encoding: 'utf8'
-  });
-})();
+  // return json
+  response.status(200).json(feed);
+}

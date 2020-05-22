@@ -43,7 +43,7 @@ export class ResourcesPage {
 
   async getTwitterFeed() {
     try {
-      const res = await fetch('/assets/twitter-feed.json');
+      const res = await fetch('/api/twitter');
       const feed = await res.json();
 
       this.tweets = feed;
@@ -185,7 +185,7 @@ export class ResourcesPage {
           </header>
         </div>
 
-        {this.tweets.length &&
+        {this.tweets.length > 0 &&
           <div>
             <div class="container">
               <div class="twitter-carousel-header">

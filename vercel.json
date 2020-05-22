@@ -1,4 +1,8 @@
 {
+    "env": {
+        "TWITTER_API_KEY": "@twitter-api-key",
+        "TWITTER_SECRET_KEY": "@twitter-secret-key"
+    },
     "redirects": [
         {
             "source": "/docs",

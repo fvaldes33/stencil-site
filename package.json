@@ -11,10 +11,10 @@
     "test": "echo Good",
     "prerender.dev": "stencil build --dev --prerender",
     "site.structure": "tsc --p ./scripts && node ./scripts/site-structure",
-    "start": "stencil build --dev --watch --serve",
-    "twitter": "tsc --p ./scripts && node ./scripts/twitter-feed"
+    "start": "stencil build --dev --watch --serve"
   },
   "devDependencies": {
+    "@now/node": "^1.6.1",
     "@stencil/core": "^1.14.0-0",
     "@stencil/router": "1.0.1",
     "@stencil/state-tunnel": "1.0.1",
@@ -22,6 +22,7 @@
     "@types/fs-extra": "^8.1.0",
     "@types/glob": "^7.1.1",
     "@types/marked": "^0.7.4",
+    "@types/node-fetch": "^2.5.7",
     "@types/prismjs": "^1.9.1",
     "base-64": "^0.1.0",
     "copy-text-to-clipboard": "^2.2.0",
