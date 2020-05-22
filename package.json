@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "Stencil Site",
   "scripts": {
-    "build": "npm run site.structure && node ./scripts/twitter-feed && npm run docs && stencil build --prerender",
+    "build": "npm run site.structure && npm run docs && stencil build --prerender",
     "build.ci": "npm run site.structure && npm run docs && stencil build --prerender --max-workers=1 --ci --next",
     "docs": "tsc --p ./scripts && node ./scripts/markdown-to-html && node ./scripts/blog-list",
     "prerender": "stencil build --prerender",
